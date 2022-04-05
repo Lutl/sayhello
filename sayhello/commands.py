@@ -32,7 +32,8 @@ def forge(count):
     db.drop_all()
     db.create_all()
 
-    fake = Faker()
+    # 虚拟数据生成中文配置
+    fake = Faker("zh_CN")
     click.echo('Working...')
 
     for i in range(count):

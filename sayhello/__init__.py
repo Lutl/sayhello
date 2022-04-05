@@ -6,9 +6,10 @@
     :license: MIT, see LICENSE for more details.
 """
 from flask import Flask
-from flask_bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap4
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
+# from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask('sayhello')
 app.config.from_pyfile('settings.py')
@@ -16,7 +17,9 @@ app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
 db = SQLAlchemy(app)
-bootstrap = Bootstrap(app)
+bootstrap = Bootstrap4(app)
 moment = Moment(app)
+# DebugToolbarExtension 一般用不到，在此不进行实例化处理
+# toolbar = DebugToolbarExtension(app)
 
 from sayhello import views, errors, commands
